@@ -76,5 +76,7 @@ public class WebStepDef {
     @Then("I logout Application")
     public void i_logout_application()throws Exception {
         flow.logout();
+        webDriver.close();
+        webDriver.quit();
     }
 }

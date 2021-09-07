@@ -3,6 +3,7 @@ package Utilities;
 import Pages.BasePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -14,10 +15,11 @@ public class Utils {
         this.webDriver= BasePage.webDriver;
     }
 
-    //WebDriverWait wait = new WebDriverWait(webDriver, 10);
+
 
     public void ExpicitWait(WebElement ele)throws Exception{
-        //wait.until(visibilityOfElementLocated(ele));
+        WebDriverWait wait = new WebDriverWait(webDriver, 60);
+        wait.until(ExpectedConditions.visibilityOf(ele));
     }
     public void Assertion(WebElement ele,String value)throws Exception{
         Assert.assertEquals(ele.getText(),value);
